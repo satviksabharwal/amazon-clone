@@ -2,20 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <Container>
-      <HeaderLogo>
-        <img src={"https://i.imgur.com/7I9Was5.png"} alt="logo" />
-      </HeaderLogo>
-      
+      <Link to="/">
+        <HeaderLogo>
+          <img src={"https://i.imgur.com/7I9Was5.png"} alt="logo" />
+        </HeaderLogo>
+      </Link>
       <HeaderOptionAddress>
         <LocationOnIcon />
         <HeaderOption>
-        <OptionLineOne>Hello</OptionLineOne>
-        <OptionLineTwo>Select Your Address</OptionLineTwo>
+          <OptionLineOne>Hello</OptionLineOne>
+          <OptionLineTwo>Select Your Address</OptionLineTwo>
         </HeaderOption>
       </HeaderOptionAddress>
 
@@ -27,7 +29,7 @@ function Header() {
           </HeaderSearchIcon>
         </HeaderSearchIconContainer>
       </HeaderSearch>
-      
+
       <HeaderNavItems>
         <HeaderOption>
           <OptionLineOne>Hello, Satvik</OptionLineOne>
@@ -37,12 +39,14 @@ function Header() {
           <OptionLineOne>Returns</OptionLineOne>
           <OptionLineTwo>& Orders</OptionLineTwo>
         </HeaderOption>
+
         <HeaderOptionCart>
-          <ShoppingBasketIcon />
-          <ShoppingItemNumber>6</ShoppingItemNumber>
+          <Link to="/cart">
+            <ShoppingBasketIcon />
+            <ShoppingItemNumber>6</ShoppingItemNumber>
+          </Link>
         </HeaderOptionCart>
       </HeaderNavItems>
-    
     </Container>
   );
 }
@@ -69,11 +73,10 @@ const HeaderOptionAddress = styled.div`
   display: flex;
   align-items: center;
   padding-left: 9px;
-  
 `;
 const OptionLineOne = styled.div``;
 const OptionLineTwo = styled.div`
-    font-weight: 700;
+  font-weight: 700;
 `;
 const HeaderSearch = styled.div`
   display: flex;
@@ -84,23 +87,23 @@ const HeaderSearch = styled.div`
   margin-left: 5px;
   background-color: white;
   :focus-within {
-    box-shadow: 0 0 0 3px #F90;
+    box-shadow: 0 0 0 3px #f90;
   }
-  `;
+`;
 const HeaderSearchInput = styled.input`
-flex-grow: 1;
-border: none;
-:focus {
+  flex-grow: 1;
+  border: none;
+  :focus {
     border: none;
-}
+  }
 `;
 const HeaderSearchIconContainer = styled.div`
-background-color: #febd69;
-width: 45px;
-color: black;
-display: flex;
-justify-content: center;
-align-items: center;
+  background-color: #febd69;
+  width: 45px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const HeaderSearchIcon = styled.div``;
 const HeaderNavItems = styled.div`
@@ -111,10 +114,16 @@ const HeaderOption = styled.div`
 `;
 const HeaderOptionCart = styled.div`
   display: flex;
-  align-items: center;
-  padding-right: 9px;
+  a {
+    display: flex;
+    align-items: center;
+    padding-right: 9px;
+    color: white;
+    text-decoration: none;
+  }
 `;
-
 const ShoppingItemNumber = styled.div`
-padding-left: 4px;
+  padding-left: 4px;
+  font-weight: 700;
+  color: #f08804;
 `;
